@@ -14,8 +14,13 @@ public class Main
                 new Parabola(-1.0/8, 5.0/4, 7.0/8),
                 new Circle(-2, 0, 4));
 
-        test();
+        test(picture);
 
+        startProgram(picture);
+    }
+
+    public static void startProgram(Picture picture)
+    {
         double restart = 1;
 
         while (restart == 1)
@@ -25,13 +30,15 @@ public class Main
 
             Point point = new Point(x, y);
 
-            print(point, picture);
+            SimpleColor color = picture.getColor(point);
+
+            printColor(color, point);
 
             restart = readDouble("number 1 if you want to input new coordinates");
         }
     }
 
-    public static void test()
+    public static void test(Picture picture)
     {
         Point [] coordinate = new Point[6];
             coordinate[0] = new Point(3, 0);
@@ -41,42 +48,37 @@ public class Main
             coordinate[4] = new Point(-3, 3);
             coordinate[5] = new Point(-8, -1);
 
-        Picture picture = new Picture(
-                new Line(4, -2),
-                new Parabola(6.0/49, -36.0/49, 152.0/49),
-                new Parabola(-1.0/4, -2, -2),
-                new Parabola(-1.0/8, 5.0/4, 7.0/8),
-                new Circle(-2, 0, 4));
-
         for (int i = 0; i < 6; i++)
         {
-            print(coordinate[i], picture);
+            SimpleColor color = picture.getColor(coordinate[i]);
 
-            SimpleColor color = SimpleColor.BLUE;
+            printColor(color, coordinate[i]);
+
+            SimpleColor rightColor = null;
 
             switch (i)
             {
                 case(0):
-                    color = SimpleColor.BLUE;
+                    rightColor = SimpleColor.BLUE;
                     break;
                 case(1):
-                    color = SimpleColor.YELLOW;
+                    rightColor = SimpleColor.YELLOW;
                     break;
                 case(2):
-                    color = SimpleColor.ORANGE;
+                    rightColor = SimpleColor.ORANGE;
                     break;
                 case(3):
-                    color = SimpleColor.GRAY;
+                    rightColor = SimpleColor.GRAY;
                     break;
                 case(4):
-                    color = SimpleColor.GREEN;
+                    rightColor = SimpleColor.GREEN;
                     break;
                 case(5):
-                    color = SimpleColor.WHITE;
+                    rightColor = SimpleColor.WHITE;
                     break;
             }
 
-            System.out.printf("%s\n", checkResult(picture.getColor(coordinate[i]), color));
+            System.out.printf("%s\n", checkResult(color, rightColor));
         }
     }
 
@@ -87,9 +89,9 @@ public class Main
         return scanner.nextDouble();
     }
 
-    public static void print(Point point, Picture picture)
+    public static void printColor(SimpleColor color, Point point)
     {
-        System.out.printf("FOR X = %1$.0f AND Y = %2$.0f IS POINT IN " + picture.getColor(point) + " AREA \n",
+        System.out.printf("FOR X = %1$.0f AND Y = %2$.0f IS POINT IN " + color + " AREA \n",
         point.x, point.y);
     }
 
