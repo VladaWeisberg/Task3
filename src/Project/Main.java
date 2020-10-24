@@ -16,7 +16,13 @@ public class Main
 
         test(picture);
 
-        startProgram(picture);
+        if(test(picture))
+        {
+            startProgram(picture);
+        } else
+        {
+            System.out.println("Test failed");
+        }
     }
 
     private static void startProgram(Picture picture)
@@ -38,8 +44,10 @@ public class Main
         }
     }
 
-    private static void test(Picture picture)
+    private static boolean test(Picture picture)
     {
+        boolean bol = true;
+
         Point [] coordinate = new Point[6];
             coordinate[0] = new Point(3, 0);
             coordinate[1] = new Point(3, 3);
@@ -77,9 +85,14 @@ public class Main
                     rightColor = SimpleColor.WHITE;
                     break;
             }
+            boolean check = checkResult(color, rightColor);
 
-            System.out.printf("%s\n", checkResult(color, rightColor));
+            System.out.printf("%s\n", check);
+
+            bol = bol && check;
         }
+
+        return bol;
     }
 
     private static double readDouble(String name)
