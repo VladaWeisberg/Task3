@@ -2,9 +2,9 @@ package Project;
 
 public class Parabola
 {
-    public double a;
-    public double b;
-    public double c;
+    private double a;
+    private double b;
+    private double c;
 
     public Parabola(double a, double b, double c)
     {

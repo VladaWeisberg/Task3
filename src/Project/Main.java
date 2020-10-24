@@ -19,7 +19,7 @@ public class Main
         startProgram(picture);
     }
 
-    public static void startProgram(Picture picture)
+    private static void startProgram(Picture picture)
     {
         double restart = 1;
 
@@ -38,7 +38,7 @@ public class Main
         }
     }
 
-    public static void test(Picture picture)
+    private static void test(Picture picture)
     {
         Point [] coordinate = new Point[6];
             coordinate[0] = new Point(3, 0);
@@ -82,20 +82,20 @@ public class Main
         }
     }
 
-    public static double readDouble(String name)
+    private static double readDouble(String name)
     {
         Scanner scanner = new Scanner(System.in);
         System.out.printf("Input %s ", name);
         return scanner.nextDouble();
     }
 
-    public static void printColor(SimpleColor color, Point point)
+    private static void printColor(SimpleColor color, Point point)
     {
         System.out.printf("FOR X = %1$.0f AND Y = %2$.0f IS POINT IN " + color + " AREA \n",
-        point.x, point.y);
+                            point.getX(), point.getY());
     }
 
-    public static boolean checkResult(SimpleColor color, SimpleColor rightColor)
+    private static boolean checkResult(SimpleColor color, SimpleColor rightColor)
     {
         return color == rightColor;
     }

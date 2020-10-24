@@ -2,11 +2,11 @@ package Project;
 
 public class Picture {
 
-    public final Line LINE;
-    public final Parabola P1;
-    public final Parabola P2;
-    public final Parabola P3;
-    public final Circle CIRCLE;
+    private final Line LINE;
+    private final Parabola P1;
+    private final Parabola P2;
+    private final Parabola P3;
+    private final Circle CIRCLE;
 
     public Picture(Line LINE, Parabola P1, Parabola P2, Parabola P3, Circle CIRCLE)
     {
@@ -19,8 +19,8 @@ public class Picture {
 
     public SimpleColor getColor(Point point)
     {
-        double x = point.x;
-        double y = point.y;
+        double x = point.getX();
+        double y = point.getY();
 
         if (LINE.isPointInside(x, y) && P1.isPointInside(x, y) && P2.isPointInside(x, y) && P3.isPointInside(x, y) &&
                 CIRCLE.isPointInside(x, y))
