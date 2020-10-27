@@ -16,7 +16,7 @@ public class Main
 
         test(picture);
 
-        if(test(picture))
+        if (test(picture))
         {
             startProgram(picture);
         } else
@@ -48,44 +48,23 @@ public class Main
     {
         boolean bol = true;
 
-        Point [] coordinate = new Point[6];
-            coordinate[0] = new Point(3, 0);
-            coordinate[1] = new Point(3, 3);
-            coordinate[2] = new Point(3, 4);
-            coordinate[3] = new Point(0, -5);
-            coordinate[4] = new Point(-3, 3);
-            coordinate[5] = new Point(-8, -1);
+        TestCase [] cases = new TestCase []{new TestCase(3, 0, SimpleColor.BLUE),
+                new TestCase(3, 3, SimpleColor.YELLOW), new TestCase(3, 4, SimpleColor.ORANGE),
+                new TestCase(0, -5, SimpleColor.GRAY), new TestCase(-3, 3, SimpleColor.GREEN),
+                new TestCase(-8, -1, SimpleColor.WHITE)};
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < cases.length; i++)
         {
-            SimpleColor color = picture.getColor(coordinate[i]);
+            TestCase testing = cases[i];
 
-            printColor(color, coordinate[i]);
+            Point point = new Point(testing.getX(), testing.getY());
 
-            SimpleColor rightColor = null;
+            SimpleColor color = picture.getColor(point);
+            SimpleColor rightColor = testing.getRightColor();
 
-            switch (i)
-            {
-                case(0):
-                    rightColor = SimpleColor.BLUE;
-                    break;
-                case(1):
-                    rightColor = SimpleColor.YELLOW;
-                    break;
-                case(2):
-                    rightColor = SimpleColor.ORANGE;
-                    break;
-                case(3):
-                    rightColor = SimpleColor.GRAY;
-                    break;
-                case(4):
-                    rightColor = SimpleColor.GREEN;
-                    break;
-                case(5):
-                    rightColor = SimpleColor.WHITE;
-                    break;
-            }
             boolean check = checkResult(color, rightColor);
+
+            printColor(color, point);
 
             System.out.printf("%s\n", check);
 

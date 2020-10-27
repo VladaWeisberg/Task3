@@ -2,19 +2,19 @@ package Project;
 
 public class Picture {
 
-    private final Line LINE;
+    private final Line L1;
     private final Parabola P1;
     private final Parabola P2;
     private final Parabola P3;
-    private final Circle CIRCLE;
+    private final Circle C1;
 
-    public Picture(Line LINE, Parabola P1, Parabola P2, Parabola P3, Circle CIRCLE)
+    public Picture(Line LINE, Parabola P1, Parabola P2, Parabola P3, Circle C1)
     {
-        this.LINE = LINE;
+        this.L1 = LINE;
         this.P1 = P1;
         this.P2 = P2;
         this.P3 = P3;
-        this.CIRCLE = CIRCLE;
+        this.C1 = C1;
     }
 
     public SimpleColor getColor(Point point)
@@ -22,43 +22,43 @@ public class Picture {
         double x = point.getX();
         double y = point.getY();
 
-        if (LINE.isPointInside(x, y) && P1.isPointInside(x, y) && P2.isPointInside(x, y) && P3.isPointInside(x, y) &&
-                CIRCLE.isPointInside(x, y))
+        if (L1.isPointInside(x, y) && P1.isPointInside(x, y) && P2.isPointInside(x, y) && P3.isPointInside(x, y) &&
+                C1.isPointInside(x, y))
         {
             return SimpleColor.GRAY;
         }
 
-        if (LINE.isPointInside(x, y) && P2.isPointInside(x, y) && P3.isPointInside(x, y) && CIRCLE.isPointInside(x, y))
+        if (L1.isPointInside(x, y) && P2.isPointInside(x, y) && P3.isPointInside(x, y) && C1.isPointInside(x, y))
         {
             return SimpleColor.GREEN;
         }
 
-        if (LINE.isPointInside(x, y) && P2.isPointInside(x, y) && CIRCLE.isPointInside(x, y))
+        if (L1.isPointInside(x, y) && P2.isPointInside(x, y) && C1.isPointInside(x, y))
         {
             return SimpleColor.ORANGE;
         }
 
-        if (LINE.isPointInside(x, y) && P3.isPointInside(x, y) && CIRCLE.isPointInside(x, y))
+        if (L1.isPointInside(x, y) && P3.isPointInside(x, y) && C1.isPointInside(x, y))
         {
             return SimpleColor.GRAY;
         }
 
-        if (LINE.isPointInside(x, y) && CIRCLE.isPointInside(x, y))
+        if (L1.isPointInside(x, y) && C1.isPointInside(x, y))
         {
             return SimpleColor.BLUE;
         }
 
-        if (P2.isPointInside(x, y) && P3.isPointInside(x, y) && CIRCLE.isPointInside(x, y))
+        if (P2.isPointInside(x, y) && P3.isPointInside(x, y) && C1.isPointInside(x, y))
         {
             return SimpleColor.YELLOW;
         }
 
-        if (P2.isPointInside(x, y) && CIRCLE.isPointInside(x, y))
+        if (P2.isPointInside(x, y) && C1.isPointInside(x, y))
         {
             return SimpleColor.GRAY;
         }
 
-        if (CIRCLE.isPointInside(x, y))
+        if (C1.isPointInside(x, y))
         {
             return SimpleColor.GREEN;
         }
@@ -83,12 +83,12 @@ public class Picture {
             return SimpleColor.WHITE;
         }
 
-        if (LINE.isPointInside(x, y) && P3.isPointInside(x, y))
+        if (L1.isPointInside(x, y) && P3.isPointInside(x, y))
         {
             return SimpleColor.BLUE;
         }
 
-        if (LINE.isPointInside(x, y))
+        if (L1.isPointInside(x, y))
         {
             return SimpleColor.ORANGE;
         }
