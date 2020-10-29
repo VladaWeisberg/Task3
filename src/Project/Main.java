@@ -44,7 +44,8 @@ public class Main
         }
     }
 
-    private static boolean test(Picture picture) {
+    private static boolean test(Picture picture)
+    {
         boolean check = true;
 
         TestCase[] testCases = new TestCase[]{new TestCase(3, 0, SimpleColor.BLUE),
@@ -52,7 +53,8 @@ public class Main
                 new TestCase(0, -5, SimpleColor.GRAY), new TestCase(-3, 3, SimpleColor.GREEN),
                 new TestCase(-8, -1, SimpleColor.WHITE)};
 
-        for (int i = 0; i < testCases.length; i++) {
+        for (int i = 0; i < testCases.length; i++)
+        {
             TestCase testing = testCases[i];
 
             Point point = new Point(testing.getX(), testing.getY());
