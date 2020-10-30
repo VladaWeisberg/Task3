@@ -16,10 +16,13 @@ public class Main
 
         boolean test = test(picture);
 
-        if (test) {
+        if (test)
+        {
             System.out.println("Test was successful\n");
             startProgram(picture);
-        } else {
+        }
+        else
+        {
             System.out.println("Test failed");
         }
     }
