@@ -14,9 +14,9 @@ public class Main
                 new Parabola(-1.0 / 8, 5.0 / 4, 7.0 / 8),
                 new Circle(-2, 0, 4));
 
-        test(picture);
+        boolean test = test(picture);
 
-        if (test(picture)) {
+        if (test) {
             System.out.println("Test was successful\n");
             startProgram(picture);
         } else {
